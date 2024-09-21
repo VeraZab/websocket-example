@@ -1,4 +1,5 @@
 import { WebSocketServer } from "ws";
+import { v4 as uuidv4 } from "uuid";
 
 const wss = new WebSocketServer({ port: 8080 });
 
@@ -19,6 +20,8 @@ const generateTradingData = () => {
   const total = (amount * price).toFixed(2);
 
   const data = {
+    id: uuidv4(),
+    date: new Date(),
     tickerSymbol,
     action,
     amount,

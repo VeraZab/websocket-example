@@ -10,6 +10,7 @@
   "description": "",
   "type": "module",
   "dependencies": {
+    "uuid": "^10.0.0",
     "ws": "^8.18.0"
   }
 }
