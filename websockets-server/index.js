@@ -15,7 +15,7 @@ const generateTradingData = () => {
   const tickerIndex = Math.floor(Math.random() * symbols.length);
   const tickerSymbol = symbols[tickerIndex];
   const price = Math.random() * 400 + 100;
-  const amount = Math.floor(Math.random() * 11);
+  const amount = Math.floor(Math.random() * 10) + 1;
   const action = possibleActions[Math.floor(Math.random() * 2)];
   const total = (amount * price).toFixed(2);
 

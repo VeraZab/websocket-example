@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Live Trading Data</h2>
+      <h2>React + WebSocket Example</h2>
       <table>
         <thead>
           <tr>
@@ -46,8 +46,18 @@ function App() {
               <td>{trade.tickerSymbol}</td>
               <td>{trade.action}</td>
               <td>{trade.amount}</td>
-              <td>{trade.price.toFixed(2)}</td>
-              <td>{trade.total}</td>
+              <td>
+                {trade.price.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </td>
+              <td>
+                {trade.total.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </td>
             </tr>
           ))}
         </tbody>
