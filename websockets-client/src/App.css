@@ -1,9 +1,18 @@
 .App {
   text-align: center;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  overflow: auto;
+  overflow: scroll;
+  padding: 2rem;
+}
+
+table {
+  margin-top: 2rem;
+}
+
+table th:nth-child(1),
+table td:nth-child(1) {
+  min-width: 170px;
 }
 
 thead {
