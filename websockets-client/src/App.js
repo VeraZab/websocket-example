@@ -48,7 +48,7 @@ function App() {
             // and the fact that we're using React.memo to memoize each row
             // makes it so that React can efficiently compute diffs
             // from render to render and only redraw the rows that changed
-            <TableRow key={trade.id} trade={trade}/>
+            <TableRow key={trade.id} trade={trade} />
           ))}
         </tbody>
       </table>
@@ -56,27 +56,27 @@ function App() {
   );
 }
 
-const TableRow= React.memo(({trade}) => {
+const TableRow = React.memo(({ trade }) => {
   return (
-    <tr >
-              <td>{new Date(trade.date).toLocaleString()}</td>
-              <td>{trade.tickerSymbol}</td>
-              <td>{trade.action}</td>
-              <td>{trade.amount}</td>
-              <td>
-                {trade.price.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </td>
-              <td>
-                {trade.total.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </td>
-            </tr>
-  )
-})
+    <tr>
+      <td>{new Date(trade.date).toLocaleString()}</td>
+      <td>{trade.tickerSymbol}</td>
+      <td>{trade.action}</td>
+      <td>{trade.amount}</td>
+      <td>
+        {trade.price.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
+      </td>
+      <td>
+        {trade.total.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
+      </td>
+    </tr>
+  );
+});
 
 export default App;
