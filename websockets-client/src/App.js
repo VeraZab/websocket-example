@@ -45,10 +45,20 @@ function App() {
         <tbody>
           {trades.map((trade) => (
             // this unique trade.id key that we are adding on each row
+            // and the fact that we're using React.memo to memoize each row
             // makes it so that React can efficiently compute diffs
-            // from render to render and only redraw the DOM elements
-            // that changed
-            <tr key={trade.id}>
+            // from render to render and only redraw the rows that changed
+            <TableRow key={trade.id} trade={trade}/>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+const TableRow= React.memo(({trade}) => {
+  return (
+    <tr >
               <td>{new Date(trade.date).toLocaleString()}</td>
               <td>{trade.tickerSymbol}</td>
               <td>{trade.action}</td>
@@ -66,11 +76,7 @@ function App() {
                 })}
               </td>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+  )
+})
 
 export default App;
